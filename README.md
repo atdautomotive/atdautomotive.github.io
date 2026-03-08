@@ -16,7 +16,7 @@ This repo is **public** (anyone can see it). Only the **owner** or **admin** (or
 
 ### 1. Open the project
 
-1. In your browser go to: **https://github.com/ATD-Automotive/atdautomotive.github.io**
+1. In your browser go to: **https://github.com/ATDAutomotive/atdautomotive.github.io**
 2. **Files to edit:**
    - **`index.html`** — all visible text (name, tagline, services, about, contact, meta tags, JSON-LD). Start here for copy changes.
    - **`css/styles.css`** — colours (top `:root` block), fonts, spacing, layout. Edit to change look.
@@ -56,9 +56,9 @@ Then add a commit message and click **Commit changes**.
 
 1. **Google Search Console** (free)  
    - Go to [search.google.com/search-console](https://search.google.com/search-console).  
-   - Add a property with your site URL (the same URL as the live site, e.g. `https://atd-automotive.github.io/atdautomotive.github.io/`).  
+   - Add a property with your site URL (the same URL as the live site, e.g. `https://atdautomotive.github.io/`).  
    - Prove you own the site (e.g. add the HTML tag they give you into the `<head>` of `index.html`, or use the DNS method if you have a custom domain).  
-   - Submit your sitemap: `https://atd-automotive.github.io/atdautomotive.github.io/sitemap.xml`.  
+   - Submit your sitemap: `https://atdautomotive.github.io/sitemap.xml`.  
    - **International targeting:** In Search Console, open **Settings** → **International targeting** and set **Country** to **New Zealand**. That tells Google to treat the site as NZ-only and prefer it for NZ searches.  
    - Google will then crawl and can show the site in search (especially to NZ users).
 
