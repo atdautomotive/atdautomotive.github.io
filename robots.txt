@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://atdautomotive.github.io/sitemap.xml
+Sitemap: https://atdautomotive.co.nz/sitemap.xml

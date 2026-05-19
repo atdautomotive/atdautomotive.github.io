@@ -2,7 +2,7 @@
 
 Landing page for **ATD Mobile Automotive** — Japanese and Korean vehicle specialists (workshop in Ferndale, New Plymouth, or mobile by appointment).
 
-**Live site:** [https://atdautomotive.github.io](https://atdautomotive.github.io)
+**Live site:** [https://atdautomotive.co.nz](https://atdautomotive.co.nz)
 
 ---
 
@@ -16,7 +16,7 @@ This repo is **public** (anyone can see it). Only the **owner** or **admin** (or
 
 ### 1. Open the project
 
-1. In your browser go to: **https://github.com/ATDAutomotive/atdautomotive.github.io**
+1. In your browser go to: **https://github.com/atdautomotive/atdautomotive.github.io**
 2. **Files to edit:**
    - **`index.html`** — all visible text (name, tagline, services, about, contact, meta tags, JSON-LD). Start here for copy changes.
    - **`css/styles.css`** — colours (top `:root` block), fonts, spacing, layout. Edit to change look.
@@ -25,7 +25,7 @@ This repo is **public** (anyone can see it). Only the **owner** or **admin** (or
 
 ### 2. View the live site
 
-- **https://atdautomotive.github.io** — this is what customers see. Changes you commit can take a minute or two to show up.
+- **https://atdautomotive.co.nz** — this is what customers see. Changes you commit can take a minute or two to show up.
 
 ### 3. How to edit (recommended)
 
@@ -37,7 +37,7 @@ Open this repo in [Cursor](https://cursor.com) (or clone it and open the folder)
 
 **Option C — Edit directly on GitHub**  
 Click the file you need, then the **pencil icon**. Use **Ctrl+F** / **Cmd+F** to find text:
-- **index.html**: Email (`Atdmobileautomotive@outlook.com`), location text (`Ferndale`), tagline, services, about copy.
+- **index.html**: Email (`info@atdautomotive.co.nz`), location text (`Ferndale`), tagline, services, about copy.
 - **js/main.js**: Phone number — edit the array `['027', '515', '1399']`.
 - **css/styles.css**: Colours — edit the `:root` block at the top.  
 Then add a commit message and click **Commit changes**.
@@ -47,7 +47,7 @@ Then add a commit message and click **Commit changes**.
 **Already in the site (no extra work):**
 
 - **Structured data** — The page includes local-business markup (JSON-LD) so Google can understand the business and show it in search and on Maps.
-- **NZ-only signals** — The page declares it’s for New Zealand: `hreflang="en-NZ"`, `geo.region`, and `areaServed` (Country: NZ + Place: New Plymouth). This helps Google show the site to NZ searchers rather than internationally.
+- **NZ-only signals** — The page declares it’s for New Zealand: `hreflang="en-NZ"`, `geo.region`, and `areaServed` (New Plymouth, Bell Block, Inglewood, Oakura). This helps Google show the site to NZ searchers rather than internationally, and to surface it for "near me" searches in the listed suburbs.
 - **Canonical URL and meta tags** — So search engines know the main URL and how to describe the site.
 - **`robots.txt`** — Tells crawlers they can index the site and where the sitemap is.
 - **`sitemap.xml`** — Tells Google which page(s) exist so it can crawl them.
@@ -56,9 +56,9 @@ Then add a commit message and click **Commit changes**.
 
 1. **Google Search Console** (free)  
    - Go to [search.google.com/search-console](https://search.google.com/search-console).  
-   - Add a property with your site URL (the same URL as the live site, e.g. `https://atdautomotive.github.io/`).  
+   - Add a property with your site URL (the same URL as the live site, e.g. `https://atdautomotive.co.nz/`).  
    - Prove you own the site (e.g. add the HTML tag they give you into the `<head>` of `index.html`, or use the DNS method if you have a custom domain).  
-   - Submit your sitemap: `https://atdautomotive.github.io/sitemap.xml`.  
+   - Submit your sitemap: `https://atdautomotive.co.nz/sitemap.xml`.  
    - **International targeting:** In Search Console, open **Settings** → **International targeting** and set **Country** to **New Zealand**. That tells Google to treat the site as NZ-only and prefer it for NZ searches.  
    - Google will then crawl and can show the site in search (especially to NZ users).
 
@@ -70,12 +70,13 @@ Then add a commit message and click **Commit changes**.
    - Complete verification (usually by postcard to the business address).  
    Once verified, Google can link your website to the map listing; the structured data in the page helps with that.
 
-**When you add a custom domain (e.g. atdautomotive.co.nz):**  
-Update in `index.html`: the `rel="canonical"` link, the `og:url` meta tag, and the `url` inside the `<script type="application/ld+json">` block. Update `robots.txt` and `sitemap.xml` to use the new domain.
+**Custom domain (atdautomotive.co.nz):**  
+The site is served at `atdautomotive.co.nz`. The `CNAME` file in this repo tells GitHub Pages which domain to serve. DNS is managed at the domain registrar, and `info@atdautomotive.co.nz` is a domain-level email forwarder that delivers to the business’s main inbox. If the domain or forwarder ever changes, the places to update in this repo are: the `CNAME` file, the `rel="canonical"` and `og:url` tags + the `url` and `email` fields in the JSON-LD inside `index.html`, the `Sitemap:` line in `robots.txt`, and the `<loc>` in `sitemap.xml`.
 
 ---
 
 ### 5. What not to change
 
 - Change only **text and numbers**. Do not delete or alter symbols like `<`, `>`, `"`, `'`, or `=` or the page can break.
+- **The word "Mobile" must stay** in the business name and copy (H1, page title, schema `name`, about copy). ATD is registered with IRD as a mobile business; describing it as a fixed-location business would create a tax-status problem.
 - If the site breaks after an edit, the repo owner can revert that commit from the GitHub history.
