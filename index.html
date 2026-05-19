@@ -197,14 +197,22 @@
 
         </div>
 
-        <!-- Map: workshop location (coordinates only in src) -->
+        <!--
+          Map: Google Business Profile listing card via Maps Embed API.
+          The iframe shows the live rating, review count, photo, address,
+          hours, and a click-through to reviews. The API key is referrer-
+          restricted in Google Cloud to atdautomotive.co.nz, so being in
+          the page source is safe — Google will reject any call from
+          another domain. Place ID points to the GBP for ATD Automotive
+          at 8 Barry Lane, Ferndale, New Plymouth.
+        -->
         <div class="map-wrapper">
           <iframe
-            src="https://maps.google.com/maps?q=-39.084441,174.0639329&z=17&ie=UTF8&iwloc=&output=embed"
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCuef4wl_PbFr3yzpoFHh0L9Km1HrQPf4w&q=place_id:ChIJoSBHldVPFG0RV7nQM3F27Jo"
             allowfullscreen=""
             loading="lazy"
             referrerpolicy="no-referrer-when-downgrade"
-            title="ATD Mobile Automotive: workshop location, Ferndale, New Plymouth (by appointment)">
+            title="ATD Mobile Automotive on Google Maps: workshop in Ferndale, New Plymouth. Includes star rating and customer reviews.">
           </iframe>
         </div>
 
