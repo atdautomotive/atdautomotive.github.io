@@ -51,7 +51,35 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Structure: index.html (this file) = content. css/styles.css = colours & layout. js/main.js = year + tap-to-call. -->
+  <!-- Structure: index.html (this file) = content. css/styles.css = colours & layout. js/main.js = year, tap-to-call, reviews loader. -->
+
+  <!-- SVG icon sprite. Referenced below via <svg><use href="#icon-xxx"/></svg>. Edit a path here once; every instance updates. -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="icon-phone" viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </symbol>
+      <symbol id="icon-shield" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"/>
+        <polyline points="12 6 12 12 16 14"/>
+      </symbol>
+      <symbol id="icon-shield-check" viewBox="0 0 24 24">
+        <path d="M9 12l2 2 4-4"/>
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <polyline points="22,6 12,13 2,6"/>
+      </symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/>
+        <circle cx="12" cy="10" r="3"/>
+      </symbol>
+    </defs>
+  </svg>
 
   <!-- Header: nav + phone CTA -->
   <header>
@@ -69,7 +97,7 @@
       </div>
 
       <a href="#" class="nav-call js-reveal-phone" aria-label="Reveal phone number to call">
-        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-phone"/></svg>
         <span class="js-phone-text">Tap to call</span>
       </a>
     </nav>
@@ -83,21 +111,21 @@
 
       <div class="trust-badges">
         <span class="badge">
-          <svg width="18" height="18" fill="none" stroke="var(--red)" stroke-width="2" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg width="18" height="18" fill="none" stroke="var(--red)" stroke-width="2" aria-hidden="true"><use href="#icon-shield"/></svg>
           Fully Qualified
         </span>
         <span class="badge">
-          <svg width="18" height="18" fill="none" stroke="var(--red)" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <svg width="18" height="18" fill="none" stroke="var(--red)" stroke-width="2" aria-hidden="true"><use href="#icon-clock"/></svg>
           20 Years Experience
         </span>
         <span class="badge">
-          <svg width="18" height="18" fill="none" stroke="var(--red)" stroke-width="2" viewBox="0 0 24 24"><path d="M9 12l2 2 4-4"/><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg width="18" height="18" fill="none" stroke="var(--red)" stroke-width="2" aria-hidden="true"><use href="#icon-shield-check"/></svg>
           Fully Insured
         </span>
       </div>
 
       <a href="#" class="hero-cta js-reveal-phone" aria-label="Reveal phone number to call">
-        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-phone"/></svg>
         <span class="js-phone-text">Tap to call</span>
       </a>
       <span class="hero-mobile">Workshop in Ferndale, New Plymouth, or we come to you across New Plymouth, Bell Block, Inglewood &amp; Oakura. By appointment.</span>
@@ -159,6 +187,31 @@
     </div>
   </section>
 
+  <!-- Reviews: loaded from the Google Places API by js/main.js. Hidden until data arrives; stays hidden if the fetch fails. Config (place ID + key) in the data attributes below. -->
+  <section class="reviews" id="reviews" hidden
+           data-place-id="ChIJoSBHldVPFG0RV7nQM3F27Jo"
+           data-api-key="AIzaSyCuef4wl_PbFr3yzpoFHh0L9Km1HrQPf4w">
+    <div class="container">
+      <h2 class="section-title">What customers <span class="accent">say</span></h2>
+      <hr class="section-divider">
+
+      <div class="reviews-summary">
+        <span class="reviews-rating">
+          <strong class="js-reviews-rating">—</strong>
+          <span class="reviews-rating-stars" aria-hidden="true">★★★★★</span>
+          <span class="reviews-rating-count js-reviews-count">— reviews</span>
+        </span>
+        <span class="reviews-attribution">Reviews from Google</span>
+      </div>
+
+      <div class="reviews-grid js-reviews-grid"></div>
+
+      <a class="reviews-cta" href="https://search.google.com/local/reviews?placeid=ChIJoSBHldVPFG0RV7nQM3F27Jo" target="_blank" rel="noopener">
+        See all reviews on Google
+      </a>
+    </div>
+  </section>
+
   <!-- Contact: phone, email, location text, map -->
   <section class="contact" id="contact">
     <div class="container">
@@ -171,7 +224,7 @@
 
           <!-- Phone: tap to reveal then call -->
           <div class="contact-item">
-            <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-phone"/></svg>
             <a href="#" class="js-reveal-phone" aria-label="Reveal phone number to call">
               <span class="label">Phone</span>
               <span class="value js-phone-text">Tap to call</span>
@@ -180,7 +233,7 @@
 
           <!-- Email -->
           <div class="contact-item">
-            <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,6 12,13 2,6"/></svg>
+            <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-mail"/></svg>
             <a href="mailto:info@atdautomotive.co.nz">
               <span class="label">Email</span>
               <span class="value">info@atdautomotive.co.nz</span>
@@ -188,7 +241,7 @@
           </div>
 
           <div class="contact-item">
-            <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <svg width="22" height="22" fill="none" stroke="var(--red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><use href="#icon-pin"/></svg>
             <div>
               <span class="label">Workshop &amp; mobile</span>
               <span class="value">Workshop in Ferndale, New Plymouth. We also come to you across New Plymouth, Bell Block, Inglewood &amp; Oakura, both by appointment.</span>
@@ -197,15 +250,7 @@
 
         </div>
 
-        <!--
-          Map: Google Business Profile listing card via Maps Embed API.
-          The iframe shows the live rating, review count, photo, address,
-          hours, and a click-through to reviews. The API key is referrer-
-          restricted in Google Cloud to atdautomotive.co.nz, so being in
-          the page source is safe — Google will reject any call from
-          another domain. Place ID points to the GBP for ATD Automotive
-          at 8 Barry Lane, Ferndale, New Plymouth.
-        -->
+        <!-- Map: GBP listing card via Maps Embed API. API key is referrer-restricted in Google Cloud, so safe in source. -->
         <div class="map-wrapper">
           <iframe
             src="https://www.google.com/maps/embed/v1/place?key=AIzaSyCuef4wl_PbFr3yzpoFHh0L9Km1HrQPf4w&q=place_id:ChIJoSBHldVPFG0RV7nQM3F27Jo"
